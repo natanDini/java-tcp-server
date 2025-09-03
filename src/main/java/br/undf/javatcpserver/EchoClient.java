@@ -24,6 +24,7 @@ public final class EchoClient {
 
                 String line;
                 System.out.println("[client] digite mensagens. 'QUIT' encerra.");
+                System.out.print("[client] > ");
                 while ((line = stdin.readLine()) != null) {
                     long t0 = System.nanoTime();
                     out.write(line);
@@ -37,12 +38,13 @@ public final class EchoClient {
                         System.out.println("[client] conexão encerrada pelo servidor.");
                         break;
                     }
-                    System.out.printf("[client] <- %s  (RTT=%s)%n",
+                    System.out.printf("[server] > %s  (RTT=%s)%n",
                             resp, Duration.ofNanos(t1 - t0).toMillis() + "ms");
 
                     if ("QUIT".equals(line)) {
                         break;
                     }
+                    System.out.print("[client] > ");
                 }
             }
         } catch (IOException e) {
