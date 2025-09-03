@@ -60,8 +60,8 @@ Client terminal:
 ```csharp
 [client] connecting to 127.0.0.1:5000 ...
 [client] type messages. 'QUIT' to exit.
-hello
-[client] <- hello  (RTT=1ms)
-QUIT
-[client] <- BYE  (RTT=1ms)
+[client] > hello
+[server] > hello  (RTT=1ms)
+[client] > QUIT
+[server] > BYE  (RTT=1ms)
 ```
